@@ -13,6 +13,7 @@ module.exports = () => {
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true,
     },
     plugins: [
       new HtmlWebpackPlugin({
@@ -49,11 +50,11 @@ module.exports = () => {
   module: {
       rules: [
         {
-          test:'/\.css$/i',
+          test: /\.css$/i,
           use: ['style-loader', 'css-loader'],
         },
         {
-          test: /\.m?js$/i,
+          test: /\.m?js$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
